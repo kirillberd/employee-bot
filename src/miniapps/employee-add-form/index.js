@@ -13,6 +13,7 @@ document.getElementById('main-form').addEventListener('submit', (e) => {
     'tags' : formData.get('tags'),
     'notes' : formData.get('notes'),
   }
-  tg.sendData(dataObject);
+  tg.sendData(JSON.stringify(dataObject));
+  console.log(dataObject)
 });
 

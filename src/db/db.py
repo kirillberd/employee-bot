@@ -8,13 +8,13 @@ class MongoClient():
         self._collection_name = collection_name
         self._client = AsyncIOMotorClient(self._db_uri)
         self._db = self._client[self._db_name]
-        self._colletion = self._db[self._collection_name]
+        self._collection = self._db[self._collection_name]
         print('Connection to mongo established')
 
     async def add_data(self, data: dict):
-        await self._colletion.insert_one(data)
+        await self._collection.insert_one(data)
 
     async def get_data(self, parameters={}):
-        cursor = self._collection.find(parameters)
-        result = await cursor.to_list
+        cursor = self._collection.find({'tags': {'$in': parameters}})
+        result = await cursor.to_list(None)
         return result
