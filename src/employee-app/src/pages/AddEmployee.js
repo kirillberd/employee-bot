@@ -9,7 +9,7 @@ function AddEmployee() {
   const [notes, setNotes] = useState('');
 
   const handleTagKeyDown = (e) => {
-    if (e.key === 'Enter' && tagInput.trim() !== '') {
+    if (e.key === ' ' && tagInput.trim() !== '') {
       e.preventDefault();
       let newTag = tagInput.trim();
       // Автоматическое добавление знака #, если не введен
@@ -91,7 +91,7 @@ function AddEmployee() {
               value={tagInput}
               onChange={(e) => setTagInput(e.target.value)}
               onKeyDown={handleTagKeyDown}
-              placeholder="Press Enter to add a tag"
+              placeholder="Press Space to add a tag"
             />
           </div>
         </div>

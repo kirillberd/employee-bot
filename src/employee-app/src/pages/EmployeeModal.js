@@ -12,7 +12,7 @@ const EmployeeModal = ({ employee, onClose, onChange, onSave, onDelete }) => {
   }, [employee]);
 
   const handleTagKeyDown = (e) => {
-    if (e.key === 'Enter' && tagInput.trim() !== '') {
+    if (e.key === ' ' && tagInput.trim() !== '') {
       e.preventDefault();
       let newTag = tagInput.trim();
       if (!newTag.startsWith('#')) {
@@ -82,7 +82,7 @@ const EmployeeModal = ({ employee, onClose, onChange, onSave, onDelete }) => {
                 value={tagInput}
                 onChange={handleTagChange}
                 onKeyDown={handleTagKeyDown}
-                placeholder="Press Enter to add a tag"
+                placeholder="Press Space to add a tag"
               />
             </div>
           </div>
